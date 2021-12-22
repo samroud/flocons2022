@@ -15,7 +15,7 @@ function setup() {
   textFont(myFont)
   textSize(240)
   textAlign(CENTER)
-  createLoop({duration:10, gif:true})
+  createLoop({duration:6, gif:true})
 }
 
 let rotationPos = 0
