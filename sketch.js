@@ -17,7 +17,7 @@ let rotationNeg = 0
 let a = 0
 let floconSize = 50
 let floconMaxSize = 65
-let vitesseRotation = 0.05
+let vitesseRotation = 0.04
 let vitesseZoom = 1.8
 
 function draw() {
