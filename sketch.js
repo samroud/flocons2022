@@ -1,14 +1,20 @@
-canvasHeight = 600
-canvasWidth = 600
+canvasWidth = 1200
+canvasHeight = 630
 
 let flocon;
+let myFont
 
 function preload() {
   flocon = loadImage('flocon.svg');
+  myFont = loadFont('DarkerGrotesque-Black.ttf')
 }
 
+
 function setup() {
-  createCanvas(canvasHeight, canvasWidth);
+  createCanvas(canvasWidth, canvasHeight);
+  textFont(myFont)
+  textSize(240)
+  textAlign(CENTER)
   //createLoop({duration:10, gif:true})
 }
 
@@ -16,17 +22,20 @@ let rotationPos = 0
 let rotationNeg = 0
 let a = 0
 let floconSize = 50
-let floconMaxSize = 65
-let vitesseRotation = 0.04
-let vitesseZoom = 1.8
+let floconMaxSize = 90
+let vitesseRotation = 0.01
+let vitesseZoom = 1.5
 
 function draw() {
-  background(255)
+  background(37,60,120)
+  fill(236, 103, 15)
+  text('JOYEUSES', canvasWidth/2, canvasHeight/2-30);
+  text('FÊTES!', canvasWidth/2, canvasHeight/2+170);
 
-  let numRows = 8
-  let numbCols = 8
-  let cellSizeWidth = canvasHeight/numbCols
-  let cellSizeHeight = canvasWidth/numRows
+  let numRows = 6
+  let numbCols = 12
+  let cellSizeWidth = canvasWidth/numbCols
+  let cellSizeHeight = canvasHeight/numRows
   
 
 
@@ -34,13 +43,9 @@ function draw() {
     for (let col=0; col < numbCols ; col+=1){
       console.log(cos(a))
       push()
-      if(col*row%2 == 0){
-        floconSize = sin(a + row + col) * floconMaxSize
-      } else{
-        floconSize = cos(a + row + col) * floconMaxSize
-      }
+      floconSize = sin(a + row + col) * floconMaxSize
       translate(col*cellSizeWidth + cellSizeWidth/2, row*cellSizeHeight + cellSizeHeight/2)
-      if(col*row%2 == 0){
+      if(col%2 == 0){
         rotate(rotationPos)
       } else{
         rotate(rotationNeg)
@@ -52,5 +57,9 @@ function draw() {
   }
   rotationPos +=vitesseRotation
   rotationNeg -=vitesseRotation
-  
+
+  fill(236, 103, 15, 150)
+  text('JOYEUSES', canvasWidth/2, canvasHeight/2-30);
+  text('FÊTES!', canvasWidth/2, canvasHeight/2+170);
+
 }
